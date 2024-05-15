@@ -1,4 +1,5 @@
-﻿using Store.Core.DomainObjects;
+﻿using NerdStore.Core.DomainObjects;
+using Store.Core.DomainObjects;
 
 namespace Store.Catalogo.Domain
 {
@@ -59,6 +60,11 @@ namespace Store.Catalogo.Domain
 
         public void Validate()
         {
+            AssetionConcern.ValidateEmpty(Name, "O campo Nome do produto não pode estar vazio!");
+            AssetionConcern.ValidateEmpty(Description, "O campo Descrição do produto não pode estar vazio!");
+            AssetionConcern.ValidateDifferent(CategoryId, Guid.Empty, "O campo CategoriaId do produto não pode estar vazio!");
+            AssetionConcern.ValidateLesser(Value, 0, "O campo Valor do produto não pode se menor igual a 0");
+            AssetionConcern.ValidateEmpty(Image, "O campo Imagem do produto não pode estar vazio");
         }
     }
 }
