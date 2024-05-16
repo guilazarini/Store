@@ -1,6 +1,6 @@
 ﻿namespace Store.Core.DomainObjects
 {
-    public interface IAggreagateRoot
+    public interface IAggregateRoot
     {
 
     }

@@ -37,7 +37,8 @@
 
         public override int GetHashCode()
         {
-            return (GetType().GetHashCode() * 831) + Id.GetHashCode();
+            Random random = new Random();
+            return (GetType().GetHashCode() * random.Next()) + Id.GetHashCode();
         }
 
         public override string ToString()

@@ -1,11 +1,11 @@
 ﻿using Store.Core.DomainObjects;
 using System.Text.RegularExpressions;
 
-namespace NerdStore.Core.DomainObjects
+namespace Store.Core.DomainObjects
 {
-    public class AssetionConcern
+    public class AssertionConcern
     {
-        public static void ValidateEqual(object object1, object object2, string mensagem)
+        public static void ValidarSeIgual(object object1, object object2, string mensagem)
         {
             if (object1.Equals(object2))
             {
@@ -13,7 +13,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateDifferent(object object1, object object2, string mensagem)
+        public static void ValidarSeDiferente(object object1, object object2, string mensagem)
         {
             if (!object1.Equals(object2))
             {
@@ -21,7 +21,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateDifferent(string pattern, string valor, string mensagem)
+        public static void ValidarSeDiferente(string pattern, string valor, string mensagem)
         {
             var regex = new Regex(pattern);
 
@@ -31,7 +31,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateSize(string valor, int maximo, string mensagem)
+        public static void ValidarTamanho(string valor, int maximo, string mensagem)
         {
             var length = valor.Trim().Length;
             if (length > maximo)
@@ -40,7 +40,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateSize(string valor, int minimo, int maximo, string mensagem)
+        public static void ValidarTamanho(string valor, int minimo, int maximo, string mensagem)
         {
             var length = valor.Trim().Length;
             if (length < minimo || length > maximo)
@@ -49,7 +49,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateEmpty(string valor, string mensagem)
+        public static void ValidarSeVazio(string valor, string mensagem)
         {
             if (valor == null || valor.Trim().Length == 0)
             {
@@ -57,7 +57,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateNull(object object1, string mensagem)
+        public static void ValidarSeNulo(object object1, string mensagem)
         {
             if (object1 == null)
             {
@@ -65,7 +65,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateMinimumMaximum(double valor, double minimo, double maximo, string mensagem)
+        public static void ValidarMinimoMaximo(double valor, double minimo, double maximo, string mensagem)
         {
             if (valor < minimo || valor > maximo)
             {
@@ -73,7 +73,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateMinimumMaximum(float valor, float minimo, float maximo, string mensagem)
+        public static void ValidarMinimoMaximo(float valor, float minimo, float maximo, string mensagem)
         {
             if (valor < minimo || valor > maximo)
             {
@@ -81,7 +81,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateMinimumMaximum(int valor, int minimo, int maximo, string mensagem)
+        public static void ValidarMinimoMaximo(int valor, int minimo, int maximo, string mensagem)
         {
             if (valor < minimo || valor > maximo)
             {
@@ -89,7 +89,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateMinimumMaximum(long valor, long minimo, long maximo, string mensagem)
+        public static void ValidarMinimoMaximo(long valor, long minimo, long maximo, string mensagem)
         {
             if (valor < minimo || valor > maximo)
             {
@@ -97,7 +97,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateMinimumMaximum(decimal valor, decimal minimo, decimal maximo, string mensagem)
+        public static void ValidarMinimoMaximo(decimal valor, decimal minimo, decimal maximo, string mensagem)
         {
             if (valor < minimo || valor > maximo)
             {
@@ -105,7 +105,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateLesser(long valor, long minimo, string mensagem)
+        public static void ValidarSeMenorQue(long valor, long minimo, string mensagem)
         {
             if (valor < minimo)
             {
@@ -113,7 +113,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateLesser(double valor, double minimo, string mensagem)
+        public static void ValidarSeMenorQue(double valor, double minimo, string mensagem)
         {
             if (valor < minimo)
             {
@@ -121,7 +121,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateLesser(decimal valor, decimal minimo, string mensagem)
+        public static void ValidarSeMenorQue(decimal valor, decimal minimo, string mensagem)
         {
             if (valor < minimo)
             {
@@ -129,7 +129,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateLesser(int valor, int minimo, string mensagem)
+        public static void ValidarSeMenorQue(int valor, int minimo, string mensagem)
         {
             if (valor < minimo)
             {
@@ -137,7 +137,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateFalse(bool boolvalor, string mensagem)
+        public static void ValidarSeFalso(bool boolvalor, string mensagem)
         {
             if (!boolvalor)
             {
@@ -145,7 +145,7 @@ namespace NerdStore.Core.DomainObjects
             }
         }
 
-        public static void ValidateTrue(bool boolvalor, string mensagem)
+        public static void ValidarSeVerdadeiro(bool boolvalor, string mensagem)
         {
             if (boolvalor)
             {
