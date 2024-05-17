@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Core", "Store.Core\St
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{34800BBA-2B2E-4517-8BCE-30B489DD2162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Catalogo.Domain.Tests", "tests\Store.Catalogo.Domain.Tests\Store.Catalogo.Domain.Tests.csproj", "{C7B5A3D1-D202-4CEF-A9B4-91F98AD4AA67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Catalogo.Domain.Tests", "tests\Store.Catalogo.Domain.Tests\Store.Catalogo.Domain.Tests.csproj", "{C7B5A3D1-D202-4CEF-A9B4-91F98AD4AA67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Catalogo.Data", "src\Store.Catalogo.Data\Store.Catalogo.Data.csproj", "{0E9FED12-26ED-46DB-A70E-A125BC2688EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C7B5A3D1-D202-4CEF-A9B4-91F98AD4AA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7B5A3D1-D202-4CEF-A9B4-91F98AD4AA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7B5A3D1-D202-4CEF-A9B4-91F98AD4AA67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9FED12-26ED-46DB-A70E-A125BC2688EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9FED12-26ED-46DB-A70E-A125BC2688EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9FED12-26ED-46DB-A70E-A125BC2688EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9FED12-26ED-46DB-A70E-A125BC2688EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{91AFD44B-6778-4F7A-8545-31647F3D0281} = {0EDCA071-F0E8-409C-8994-158FE63BB0E8}
 		{34800BBA-2B2E-4517-8BCE-30B489DD2162} = {C50D0040-687A-4226-9E95-8F436562D0E4}
 		{C7B5A3D1-D202-4CEF-A9B4-91F98AD4AA67} = {34800BBA-2B2E-4517-8BCE-30B489DD2162}
+		{0E9FED12-26ED-46DB-A70E-A125BC2688EE} = {C50D0040-687A-4226-9E95-8F436562D0E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0906ABB-D369-42CC-840A-F04A53666A2B}
