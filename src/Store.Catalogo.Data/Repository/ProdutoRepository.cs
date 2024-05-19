@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Store.Catalogo.Domain;
+using Store.Catalogo.Domain.Interfaces;
 using Store.Core.Data;
 
 namespace Store.Catalogo.Data.Repository

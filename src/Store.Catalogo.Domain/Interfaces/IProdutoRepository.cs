@@ -1,6 +1,6 @@
 ﻿using Store.Core.Data;
 
-namespace Store.Catalogo.Domain
+namespace Store.Catalogo.Domain.Interfaces
 {
     public interface IProdutoRepository : IRepository<Produto>
     {

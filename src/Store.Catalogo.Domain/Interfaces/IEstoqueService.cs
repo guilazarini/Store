@@ -1,4 +1,4 @@
-﻿namespace Store.Catalogo.Domain
+﻿namespace Store.Catalogo.Domain.Interfaces
 {
     public interface IEstoqueService : IDisposable
     {
