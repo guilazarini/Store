@@ -16,7 +16,6 @@ namespace Store.Catalogo.Domain.Events
         {
             var produto = await _produtoRepository.GetById(notification.AggregateID);
 
-            //Enviar email para aquisição de mais produtos.
         }
     }
 }
