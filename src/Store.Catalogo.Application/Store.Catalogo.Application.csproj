@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Store.Catalogo.Domain\Store.Catalogo.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="AutoMapper\" />
-  </ItemGroup>
-
 </Project>
