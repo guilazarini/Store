@@ -1,9 +1,11 @@
-﻿using Store.Catalogo.Application.Services;
+﻿using MediatR;
+using Store.Catalogo.Application.Services;
 using Store.Catalogo.Data;
 using Store.Catalogo.Data.Repository;
 using Store.Catalogo.Domain;
 using Store.Catalogo.Domain.Interfaces;
 using Store.Core.Bus;
+using Store.Vendas.Application.Commands;
 
 namespace Store.WebApp.MVC.Setup
 {
@@ -19,6 +21,9 @@ namespace Store.WebApp.MVC.Setup
             services.AddScoped<IProdutoAppService, ProdutoAppService>();
             services.AddScoped<IEstoqueService, EstoqueService>();
             services.AddScoped<CatalogoContext>();
+
+            //Vendas
+            services.AddScoped<IRequestHandler<AddItemPedidoCommand, bool>, PedidoCommandHandler>();
         }
     }
 }
