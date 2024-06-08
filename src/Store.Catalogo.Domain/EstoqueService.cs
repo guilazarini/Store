@@ -1,15 +1,15 @@
 ﻿using Store.Catalogo.Domain.Events;
 using Store.Catalogo.Domain.Interfaces;
-using Store.Core.Bus;
+using Store.Core.Communication.Mediator;
 
 namespace Store.Catalogo.Domain
 {
     public class EstoqueService : IEstoqueService
     {
         private readonly IProdutoRepository _produtoRepository;
-        private readonly IMediatrHandler _bus;
+        private readonly IMediatorHandler _bus;
 
-        public EstoqueService(IProdutoRepository produtoRepository, IMediatrHandler bus)
+        public EstoqueService(IProdutoRepository produtoRepository, IMediatorHandler bus)
         {
             _produtoRepository = produtoRepository;
             _bus = bus;

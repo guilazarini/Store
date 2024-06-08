@@ -1,10 +1,15 @@
 ﻿using MediatR;
+using NerdStore.Vendas.Data.Repository;
 using Store.Catalogo.Application.Services;
 using Store.Catalogo.Data;
 using Store.Catalogo.Data.Repository;
 using Store.Catalogo.Domain;
 using Store.Catalogo.Domain.Interfaces;
-using Store.Core.Bus;
+using Store.Core.Communication.Mediator;
+using Store.Core.Data;
+using Store.Core.Messages.CommonMessages.Norifications;
+using Store.Core.Messages.CommonMessages.Notifications;
+using Store.Vendar.Domain;
 using Store.Vendas.Application.Commands;
 
 namespace Store.WebApp.MVC.Setup
@@ -13,8 +18,11 @@ namespace Store.WebApp.MVC.Setup
     {
         public static void RegisterServices(this IServiceCollection services) 
         {
-            // Domain Bus (Mediator)
-            services.AddScoped<IMediatrHandler, MediatrHandler>();
+            // Mediator
+            services.AddScoped<IMediatorHandler, MediatorHandler>();
+
+            //Notification
+            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
             // Catalogo
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
@@ -24,6 +32,7 @@ namespace Store.WebApp.MVC.Setup
 
             //Vendas
             services.AddScoped<IRequestHandler<AddItemPedidoCommand, bool>, PedidoCommandHandler>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
         }
     }
 }

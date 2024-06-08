@@ -1,6 +1,6 @@
 ﻿using Store.Core.Messages;
 
-namespace Store.Core.DomainObjects
+namespace Store.Core.Messages.CommonMessages.DomainEvents
 {
     public class DomainEvent : Event
     {

@@ -1,9 +1,4 @@
-﻿using Store.Core.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Store.Core.Messages.CommonMessages.DomainEvents;
 
 namespace Store.Catalogo.Domain.Events
 {
