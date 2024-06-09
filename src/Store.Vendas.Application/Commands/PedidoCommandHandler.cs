@@ -2,6 +2,7 @@
 using Store.Core.Communication.Mediator;
 using Store.Core.Messages;
 using Store.Vendar.Domain;
+using Store.Vendas.Application.Events;
 
 
 namespace Store.Vendas.Application.Commands
@@ -29,6 +30,7 @@ namespace Store.Vendas.Application.Commands
                 pedido.AdicionarItem(pedidoItem);
 
                 _pedidoRepository.Adicionar(pedido);
+                pedido.AdicionarEvento(new PedidoRascunhoIniciadoEvent(message.ClienteId, message.ProdutoId));
             }
             else
             {
@@ -43,7 +45,11 @@ namespace Store.Vendas.Application.Commands
                 {
                     _pedidoRepository.AdicionarItem(pedidoItem);
                 }
+
+                pedido.AdicionarEvento(new PedidoAtualizadoEvent(pedido.ClienteId, pedido.Id, pedido.ValorTotal));
             }
+
+            pedido.AdicionarEvento(new ItemPedidoAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.ValorUnitario, message.Quantidade));
             return await _pedidoRepository.UnitOfWork.Commit();
         }
 

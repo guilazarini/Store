@@ -7,13 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Events\" />
     <Folder Include="Queries\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Store.Core\Store.Core.csproj" />
-    <ProjectReference Include="..\..\Store.Vendar.Domain\Store.Vendar.Domain.csproj" />
+    <ProjectReference Include="..\..\Store.Vendar.Domain\Store.Vendas.Domain.csproj" />
   </ItemGroup>
 
 </Project>

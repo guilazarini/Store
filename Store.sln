@@ -31,13 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Catalogo.Data", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Catalogo.Application", "src\Store.Catalogo.Application\Store.Catalogo.Application.csproj", "{3B11A7DB-646A-4B99-AEA8-FBB2BBA548EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.WebApp.MVC", "src\Store.WebApp.MVC\Store.WebApp.MVC.csproj", "{328B2322-4F04-4A90-82D7-EF8F39652ED2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.WebApp.MVC", "src\Store.WebApp.MVC\Store.WebApp.MVC.csproj", "{328B2322-4F04-4A90-82D7-EF8F39652ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Vendar.Domain", "Store.Vendar.Domain\Store.Vendar.Domain.csproj", "{1509C82E-F718-48BD-99A4-146EE08C9C0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Vendas.Domain", "Store.Vendar.Domain\Store.Vendas.Domain.csproj", "{1509C82E-F718-48BD-99A4-146EE08C9C0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Vendas.Application", "src\Store.Vendas.Application\Store.Vendas.Application.csproj", "{4CF99AC5-E3D4-4A1D-A97E-BE7B7A6A75D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Vendas.Application", "src\Store.Vendas.Application\Store.Vendas.Application.csproj", "{4CF99AC5-E3D4-4A1D-A97E-BE7B7A6A75D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Vendas.Data", "src\Store.Vendas.Data\Store.Vendas.Data.csproj", "{C82D5113-8418-4E1D-A90B-C9F361FBB514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Vendas.Data", "src\Store.Vendas.Data\Store.Vendas.Data.csproj", "{C82D5113-8418-4E1D-A90B-C9F361FBB514}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
