@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Carrinho.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.6" />
@@ -24,6 +28,18 @@
     <ProjectReference Include="..\Store.Catalogo.Domain\Store.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\Store.Vendas.Application\Store.Vendas.Application.csproj" />
     <ProjectReference Include="..\Store.Vendas.Data\Store.Vendas.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Carrinho.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Carrinho.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Carrinho.cshtml" />
   </ItemGroup>
 
 </Project>
