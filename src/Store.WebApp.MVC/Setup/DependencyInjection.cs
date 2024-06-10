@@ -11,6 +11,7 @@ using Store.Core.Messages.CommonMessages.Norifications;
 using Store.Core.Messages.CommonMessages.Notifications;
 using Store.Vendar.Domain;
 using Store.Vendas.Application.Commands;
+using Store.Vendas.Application.Events;
 
 namespace Store.WebApp.MVC.Setup
 {
@@ -33,6 +34,12 @@ namespace Store.WebApp.MVC.Setup
             //Vendas
             services.AddScoped<IRequestHandler<AddItemPedidoCommand, bool>, PedidoCommandHandler>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
+
+
+            services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoAtualizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<ItemPedidoAdicionadoEvent>, PedidoEventHandler>();
+
         }
     }
 }
