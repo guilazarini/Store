@@ -1,11 +1,7 @@
 ﻿using MediatR;
 using Store.Core.Messages;
 using Store.Core.Messages.CommonMessages.Norifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Store.Core.Communication.Mediator
 {
