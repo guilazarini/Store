@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace Store.Vendas.Application.Events
 {
-    public class PedidoEventHandler : INotificationHandler<PedidoRascunhoIniciadoEvent>, INotificationHandler<PedidoAtualizadoEvent>, INotificationHandler<ItemPedidoAdicionadoEvent>
+    public class PedidoEventHandler : 
+        INotificationHandler<PedidoRascunhoIniciadoEvent>, 
+        INotificationHandler<PedidoAtualizadoEvent>, 
+        INotificationHandler<ItemPedidoAdicionadoEvent>,
+        INotificationHandler<PedidoEstoqueRejeitadoEvent>
     {
+
         public Task Handle(PedidoRascunhoIniciadoEvent notification, CancellationToken cancellationToken)
         {
             return Task.CompletedTask;
@@ -21,6 +26,12 @@ namespace Store.Vendas.Application.Events
 
         public Task Handle(ItemPedidoAdicionadoEvent notification, CancellationToken cancellationToken)
         {
+            return Task.CompletedTask;
+        }
+
+        public Task Handle(PedidoEstoqueRejeitadoEvent notification, CancellationToken cancellationToken)
+        {
+            //cancelar o processamento do pedido - retornar erro para o cliente.
             return Task.CompletedTask;
         }
     }
