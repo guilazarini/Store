@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Store.Core.Communication.Mediator;
+using Store.Core.DomainObjects.Dtos;
+using Store.Core.Extensions;
 using Store.Core.Messages;
 using Store.Core.Messages.CommonMessages.Norifications;
 using Store.Vendar.Domain;
@@ -11,7 +13,8 @@ namespace Store.Vendas.Application.Commands
     public class PedidoCommandHandler : IRequestHandler<AddItemPedidoCommand, bool>,
                                         IRequestHandler<AtualizarItemPedidoCommand, bool>,
                                         IRequestHandler<RemoverItemPedidoCommand, bool>,
-                                        IRequestHandler<AplicarVoucherPedidoCommand, bool>
+                                        IRequestHandler<AplicarVoucherPedidoCommand, bool>,
+                                        IRequestHandler<IniciarPedidoCommand, bool>
 
     {
         private readonly IPedidoRepository _pedidoRepository;
@@ -56,17 +59,6 @@ namespace Store.Vendas.Application.Commands
 
             pedido.AdicionarEvento(new ItemPedidoAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.ValorUnitario, message.Quantidade));
             return await _pedidoRepository.UnitOfWork.Commit();
-        }
-        private bool ValidarComando(Command message)
-        {
-            if (message.IsValid()) return true;
-
-            foreach (var error in message.ValidationResult.Errors)
-            {
-                // lançar um evento de erro
-            }
-
-            return false;
         }
 
         public async Task<bool> Handle(AtualizarItemPedidoCommand message, CancellationToken cancellationToken)
@@ -157,6 +149,35 @@ namespace Store.Vendas.Application.Commands
             _pedidoRepository.Atualizar(pedido);
 
             return await _pedidoRepository.UnitOfWork.Commit();
+        }
+
+        public async Task<bool> Handle(IniciarPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return false;
+
+            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorClienteId(message.ClienteId);
+            pedido.IniciarPedido();
+
+            var itensList = new List<Item>();
+            pedido.PedidoItems.ForEach(i => itensList.Add(new Item { Id = i.ProdutoId, Quantidade = i.Quantidade }));
+            var listaProdutosPedido = new ListaProdutosPedido { PedidoId = pedido.Id, Itens = itensList };
+
+            pedido.AdicionarEvento(new PedidoIniciadoEvent(pedido.Id, pedido.ClienteId, listaProdutosPedido, pedido.ValorTotal, message.NomeCartao, message.NumeroCartao, message.ExpiracaoCartao, message.CvvCartao));
+
+            _pedidoRepository.Atualizar(pedido);
+            return await _pedidoRepository.UnitOfWork.Commit();
+        }
+
+        private bool ValidarComando(Command message)
+        {
+            if (message.IsValid()) return true;
+
+            foreach (var error in message.ValidationResult.Errors)
+            {
+                // lançar um evento de erro
+            }
+
+            return false;
         }
     }
 }
