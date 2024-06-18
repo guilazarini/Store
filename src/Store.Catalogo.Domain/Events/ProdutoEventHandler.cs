@@ -1,13 +1,15 @@
 ﻿using MediatR;
 using Store.Catalogo.Domain.Interfaces;
 using Store.Core.Communication.Mediator;
+using Store.Core.Messages.IntagrationEvents;
 using Store.Vendas.Application.Events;
 
 namespace Store.Catalogo.Domain.Events
 {
     public class ProdutoEventHandler : 
         INotificationHandler<ProdutoAbaixoEstoqueEvent>,
-        INotificationHandler<PedidoIniciadoEvent>
+        INotificationHandler<PedidoIniciadoEvent>,
+        INotificationHandler<PedidoProcessamentoCanceladoEvent>
                                         
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -39,6 +41,11 @@ namespace Store.Catalogo.Domain.Events
             {
                 await _mediatorHandler.PublicarEvento(new PedidoEstoqueRejeitadoEvent(notification.PedidoID, notification.ClienteId));
             }
+        }
+
+        public async Task Handle(PedidoProcessamentoCanceladoEvent notification, CancellationToken cancellationToken)
+        {
+            await _estoqueService.ReporListaProdutosPedido(notification.ProdutosPedido);
         }
     }
 }
