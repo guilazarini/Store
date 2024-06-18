@@ -1,4 +1,7 @@
 ﻿using MediatR;
+using Store.Core.Communication.Mediator;
+using Store.Core.Messages.IntagrationEvents;
+using Store.Vendas.Application.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +14,17 @@ namespace Store.Vendas.Application.Events
         INotificationHandler<PedidoRascunhoIniciadoEvent>, 
         INotificationHandler<PedidoAtualizadoEvent>, 
         INotificationHandler<ItemPedidoAdicionadoEvent>,
-        INotificationHandler<PedidoEstoqueRejeitadoEvent>
+        INotificationHandler<PedidoEstoqueRejeitadoEvent>,
+        INotificationHandler<PagamentoRealizadoEvent>,
+        INotificationHandler<PagamentoRecusadoEvent>
     {
+
+        private IMediatorHandler _mediatorhandler;
+
+        public PedidoEventHandler(IMediatorHandler mediatorhandler)
+        {
+                _mediatorhandler = mediatorhandler;
+        }
 
         public Task Handle(PedidoRascunhoIniciadoEvent notification, CancellationToken cancellationToken)
         {
@@ -29,10 +41,19 @@ namespace Store.Vendas.Application.Events
             return Task.CompletedTask;
         }
 
-        public Task Handle(PedidoEstoqueRejeitadoEvent notification, CancellationToken cancellationToken)
+        public async Task Handle(PedidoEstoqueRejeitadoEvent notification, CancellationToken cancellationToken)
         {
-            //cancelar o processamento do pedido - retornar erro para o cliente.
-            return Task.CompletedTask;
+            await _mediatorhandler.EnviarComando(new CancelarProcessamentoPedidoCommand(notification.PedidoId, notification.ClienteId));
+        }
+
+        public async Task Handle(PagamentoRealizadoEvent notification, CancellationToken cancellationToken)
+        {
+            await _mediatorhandler.EnviarComando(new FinalizarPedidoCommand(notification.PedidoId, notification.ClienteId));
+        }
+
+        public async Task Handle(PagamentoRecusadoEvent notification, CancellationToken cancellationToken)
+        {
+            await _mediatorhandler.EnviarComando(new CancelarProcessamentoPedidoEstornarEstoqueCommand(notification.PedidoId, notification.ClienteId));
         }
     }
 }
