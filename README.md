@@ -12,7 +12,7 @@ Neste arquivo README, você encontrará informações úteis sobre o funcionamen
 
 ## Sobre
 
-O projeto foi desenvolvido junto ao curso da plataforma balta.io, no módulo de "Modelando Domínios Ricos". O desenvolvimento consiste na modelagem de um contexto de pagamentos.
+O projeto foi desenvolvido junto ao curso da plataforma Desenvolvedor.io, no módulo de "Modelando Domínios Ricos". O desenvolvimento consiste na modelagem de um contexto de pagamentos.
 
 O propósito principal desse curso foi proporcionar uma visão abrangente de uma solução robusta de mercado, que incorpora diversos conceitos e boas práticas. Embora a organização do projeto possa parecer complexa à primeira vista, a estruturação cuidadosa das pastas é o que garante a solidez da solução.
 
@@ -28,9 +28,7 @@ Neste projeto, foi utilizado as seguintes tecnologias:
 - OOP
 - DDD (Domain-Driven Design)
 - CQRS (Command Query Responsibility Segregation)
-- Design by Contracts
-- Fail-Fast Validations
-- Testes unitarios MSTest
+
 
 ## Conclusão
 
